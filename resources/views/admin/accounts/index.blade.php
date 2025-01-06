@@ -49,6 +49,7 @@
                         <td class="border border-gray-300 px-4 py-2">{{ $account->nim }}</td>
                         <td class="border border-gray-300 px-4 py-2">{{ $account->email }}</td>
                         <td class="border border-gray-300 px-4 py-2">{{ $account->type }}</td>
+                        @if($account->type !== \App\Enums\UserType::ADMIN)
                         <td class="border border-gray-300 px-4 py-2 flex justify-center space-x-2">
                             <a href="{{ route('admin.accounts.edit', $account->id) }}" class="bg-blue-400 hover:bg-blue-500 text-white px-3 py-1 rounded-md flex items-center">
                                 edit
@@ -61,6 +62,7 @@
                                 </button>
                             </form>
                         </td>
+                        @endif
                     </tr>
                     @empty
                     <tr>
